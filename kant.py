@@ -14,6 +14,9 @@ cursor = connection.cursor()
 cursor.execute('SELECT COUNT(*) FROM quotes')
 amount = cursor.fetchone()[0]
 
+with open('token', 'r') as f:
+    token = f.read()
+
 
 def help(bot, update):
     global amount
@@ -34,7 +37,8 @@ def get_quote(bot, update):
 
 
 def main():
-    updater = Updater("189425037:AAEdpu6o7M7Q1miFaM4RAX68kmumGrXGV5U")
+    global token
+    updater = Updater('192438905:AAGeBh6fh9lJsnweK_rYuIqZYojRUP4R4Ac')
     dp = updater.dispatcher
     dp.addTelegramCommandHandler("help", help)
     dp.addTelegramCommandHandler("get_quote", get_quote)
