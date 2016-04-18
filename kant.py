@@ -20,7 +20,7 @@ with open('token', 'r') as f:
 
 def help(bot, update):
     global amount
-    text = "Бот-филасаф. В базе %s цитат" % amount
+    text = "Бот-филасаф. В базе %s цитат.\n/get_quote - получить цитату." % amount
     bot.sendMessage(update.message.chat_id, text=text)
 
 
@@ -38,7 +38,7 @@ def get_quote(bot, update):
 
 def main():
     global token
-    updater = Updater('192438905:AAGeBh6fh9lJsnweK_rYuIqZYojRUP4R4Ac')
+    updater = Updater(token)
     dp = updater.dispatcher
     dp.addTelegramCommandHandler("help", help)
     dp.addTelegramCommandHandler("get_quote", get_quote)
